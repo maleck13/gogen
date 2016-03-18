@@ -5,13 +5,15 @@ Ensure you have $GOPATH set
 
 ```
 
-go get -u github.com/maleck13/gogen
+go get github.com/maleck13/gogen
 
 go install .
 
 gogen generate --package=github.com/example/app
 
 cd $GOPATH/src/github.com/example/app
+
+go get .
 
 go build .
 
