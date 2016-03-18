@@ -5,7 +5,7 @@ Ensure you have $GOPATH set
 
 ```
 
-go get github.com/maleck13/gogen
+go get -u github.com/maleck13/gogen
 
 go install .
 
