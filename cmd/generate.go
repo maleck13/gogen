@@ -1,12 +1,12 @@
 package cmd
 
 import (
-	"github.com/Sirupsen/logrus"
-	"github.com/codegangsta/cli"
-	"os"
+	"github.com/maleck13/gogen/Godeps/_workspace/src/github.com/Sirupsen/logrus"
+	"github.com/maleck13/gogen/Godeps/_workspace/src/github.com/codegangsta/cli"
 	"github.com/maleck13/gogen/template"
-	"strings"
 	"io/ioutil"
+	"os"
+	"strings"
 )
 
 var packageRoot string
@@ -50,7 +50,7 @@ func getGoPath() string {
 }
 
 func mkDirs(basePath string) {
-	dirs := []string{basePath, basePath + "/cmd", basePath + "/api",basePath+"/config"}
+	dirs := []string{basePath, basePath + "/cmd", basePath + "/api", basePath + "/config"}
 	for _, d := range dirs {
 		if err := os.MkdirAll(d, os.ModePerm); err != nil {
 			logrus.Panic(err)
@@ -60,12 +60,12 @@ func mkDirs(basePath string) {
 }
 
 func copyFiles(basePath string) {
-	for _,t := range template.TEMPLATE_FILES{
+	for _, t := range template.TEMPLATE_FILES {
 		content := template.GetContent(t)
-		content = strings.Replace(content,"{basePackage}",packageRoot,-1)
+		content = strings.Replace(content, "{basePackage}", packageRoot, -1)
 		filePath := basePath + "/" + t
 		logrus.Info("creating file ", filePath)
-		if err := ioutil.WriteFile(filePath,[]byte(content),os.ModePerm); err != nil{
+		if err := ioutil.WriteFile(filePath, []byte(content), os.ModePerm); err != nil {
 			logrus.Panic(err)
 		}
 

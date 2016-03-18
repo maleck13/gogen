@@ -1,0 +1,19 @@
+{
+	"ImportPath": "github.com/maleck13/gogen",
+	"GoVersion": "go1.6",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/Sirupsen/logrus",
+			"Comment": "v0.8.6-7-g9c060de",
+			"Rev": "9c060de643590dae45da9d7c26276463bfc46fa0"
+		},
+		{
+			"ImportPath": "github.com/codegangsta/cli",
+			"Comment": "1.2.0-224-gaca5b04",
+			"Rev": "aca5b047ed14d17224157c3434ea93bf6cdaadee"
+		}
+	]
+}

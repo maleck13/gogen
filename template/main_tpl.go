@@ -1,50 +1,50 @@
 package template
 
-const(
-	FILE_MAIN = "main.go"
-	FILE_API_ROUTER = "api/router.go"
-	FILE_API_INDEX = "api/indexRoute.go"
-	FILE_ERROR_HANDLER = "api/routeErrorHandler.go"
-	FILE_ERRORS = "api/errors.go"
-	FILE_CMD_SERVER = "cmd/server.go"
+const (
+	FILE_MAIN           = "main.go"
+	FILE_API_ROUTER     = "api/router.go"
+	FILE_API_INDEX      = "api/indexRoute.go"
+	FILE_ERROR_HANDLER  = "api/routeErrorHandler.go"
+	FILE_ERRORS         = "api/errors.go"
+	FILE_CMD_SERVER     = "cmd/server.go"
 	FILE_API_INDEX_TEST = "api/indexRoute_test.go"
 	FILE_CONFIG_EXAMPLE = "config/conf.json"
-	FILE_CONFIG = "config/config.go"
+	FILE_CONFIG         = "config/config.go"
 )
 
 var TEMPLATE_FILES = []string{FILE_MAIN, FILE_API_ROUTER,
-	FILE_API_INDEX,FILE_ERROR_HANDLER,FILE_ERRORS,FILE_CMD_SERVER,
-FILE_API_INDEX_TEST,FILE_CONFIG,FILE_CONFIG_EXAMPLE}
+	FILE_API_INDEX, FILE_ERROR_HANDLER, FILE_ERRORS, FILE_CMD_SERVER,
+	FILE_API_INDEX_TEST, FILE_CONFIG, FILE_CONFIG_EXAMPLE}
 
 func GetContent(file string) string {
-	if file == FILE_MAIN{
+	if file == FILE_MAIN {
 		return getMain()
-	}else if file == FILE_API_ROUTER{
+	} else if file == FILE_API_ROUTER {
 		return getApiRouter()
-	}else if file == FILE_API_INDEX{
+	} else if file == FILE_API_INDEX {
 		return getApiIndex()
-	}else if file == FILE_CMD_SERVER{
+	} else if file == FILE_CMD_SERVER {
 		return getCmdServer()
-	}else if file == FILE_ERROR_HANDLER{
+	} else if file == FILE_ERROR_HANDLER {
 		return getApiErrorHandler()
-	}else if file == FILE_ERRORS{
+	} else if file == FILE_ERRORS {
 		return getApiErrors()
-	}else if file == FILE_API_INDEX_TEST{
+	} else if file == FILE_API_INDEX_TEST {
 		return getApiIndexTest()
-	}else if file == FILE_CONFIG{
+	} else if file == FILE_CONFIG {
 		return getConfig()
-	}else if file == FILE_CONFIG_EXAMPLE{
+	} else if file == FILE_CONFIG_EXAMPLE {
 		return getConfigExample()
 	}
 	return ""
 
 }
 
-func getConfigExample()string{
+func getConfigExample() string {
 	return `{"example":"value"}`
 }
 
-func getConfig()string{
+func getConfig() string {
 	return `package config
 
 import (
@@ -93,8 +93,7 @@ func SetGlobalConfig(path string){
 `
 }
 
-
-func getApiIndexTest()string{
+func getApiIndexTest() string {
 	return `package api_test
 
 import (
@@ -132,7 +131,7 @@ func TestIndexRoute(t *testing.T){
 `
 }
 
-func getMain()string{
+func getMain() string {
 	return `
 
 package main
@@ -157,8 +156,8 @@ func main()  {
 `
 }
 
-func getCmdServer()string{
-  return	`
+func getCmdServer() string {
+	return `
   package cmd
 
 import (
@@ -206,8 +205,7 @@ func serve(context *cli.Context){
 `
 }
 
-
-func getApiRouter()string{
+func getApiRouter() string {
 	return `package api
 
 import (
@@ -228,10 +226,7 @@ func NewRouter()http.Handler{
 `
 }
 
-
-
-
-func getApiIndex()string{
+func getApiIndex() string {
 	return `package api
 
 import (
@@ -252,7 +247,7 @@ func IndexHandler(rw http.ResponseWriter, req *http.Request)HttpError{
 }`
 }
 
-func getApiErrors()string{
+func getApiErrors() string {
 	return `package api
 
 //generic http error wrapper
@@ -279,7 +274,7 @@ func (he *HttpHandlerError)HttpErrorCode()int{
 `
 }
 
-func getApiErrorHandler()string{
+func getApiErrorHandler() string {
 	return `package api
 
 import (

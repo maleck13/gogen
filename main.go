@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/codegangsta/cli"
+	"github.com/maleck13/gogen/Godeps/_workspace/src/github.com/codegangsta/cli"
 	"github.com/maleck13/gogen/cmd"
 	"os"
 )
