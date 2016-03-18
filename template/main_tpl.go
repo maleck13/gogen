@@ -237,7 +237,7 @@ func getApiIndex()string{
 import (
 	"net/http"
 	"encoding/json"
-	"github.com/maleck13/testapp/config"
+	"{basePackage}/config"
 )
 
 //Example route handler
